@@ -1,0 +1,54 @@
+<h2>My twits</h2>
+<table id="twits">
+  <thead>
+    <tr>
+      <th>Twits</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let twit of posts" id="{{twit._id}}">
+      <td>{{ twit.content }}</td>
+      <td>{{ twit.date }}</td>
+      <td>
+        <a [routerLink]='["/edit_post", twit._id]'>edit</a>
+        <!-- <a (click)="edit(twit._id)">edit</a> -->
+        <button type="button" (click)="delete(twit._id)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table id="followers">
+  <thead>
+    <tr>
+      <th>Followers</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of followers" id="{{ user }}follower">
+      <td>{{ user }}</td>
+      <td>
+        <a routerLink="/edit_post">edit</a>
+        <!-- <button type="button" (click)="delete(twit._id)">delete</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table id="follow">
+  <thead>
+    <tr>
+      <th>Users you're following</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of followed" id="{{ user }}followed">
+      <td>{{ user }}</td>
+      <td>
+        <button type="button" (click)="unfollow(user)">unfollow</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

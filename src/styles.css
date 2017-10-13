@@ -1,0 +1,37 @@
+#thread
+{
+    border-left: 1px black solid;
+    width: 30%;
+    position : fixed;
+    margin-top : 15%;
+    right: 0;
+    display: inline-block;
+    height: 100%;
+}
+#router-outlet, #results, #err
+{
+    margin-top : 15%;
+    right: 0;
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    /*background-color:#FF7700;*/
+
+}
+
+header
+{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border-bottom: 3px solid black;
+    background-color:#FF7700;
+    padding: 14px;
+}
+#nav
+{
+    float: right;
+    margin-right: 30px;
+    height: 60px;
+    padding-left: 5%;
+}

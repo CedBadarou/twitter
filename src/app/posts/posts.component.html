@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>New Post</h1>
+    {{ message }}
+    <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #post = "ngForm">
+
+      <div class="form-group">
+        <label for="content">Content</label>
+        <input type="textarea" class="form-control" id="content" required placeholder="content"
+        [(ngModel)]="model.content" name="content" rows="4" maxlength="140">
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!post.form.valid">Submit</button>
+
+    </form>
+  </div>
+</div>

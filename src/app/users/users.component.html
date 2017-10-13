@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>List of users</th>
+      <th id="test">Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <p *ngIf="user.username!=currentUser;then show"></p>
+      <ng-template #show>
+      <td>{{ user.username }}</td>
+
+      <p *ngIf="user.followedBy.length>0;then loop else noloop"></p>
+
+      <ng-template #loop>
+
+        <td *ngFor="let followed of user.followedBy; let i = index">
+          <button *ngIf="currentUser==followed"
+            (click)="unfollow(user.username)"> Unfollow {{ user.username }}</button>
+          <button *ngIf="i+1==user.followedBy.length && currentUser != followed"
+            (click)="follow(user.username)">
+             Follow {{user.username}} </button>
+        </td>
+      </ng-template>
+
+      <ng-template #noloop>
+
+        <td>
+          <button (click)="follow(user.username)">Follow {{ user.username }}</button>
+        </td>
+      </ng-template>
+    </ng-template>
+    </tr>
+  </tbody>
+</table>
